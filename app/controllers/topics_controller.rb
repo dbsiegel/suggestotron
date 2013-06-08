@@ -2,11 +2,15 @@ class TopicsController < ApplicationController
   # GET /topics
   # GET /topics.json
   def index
-    @topics = Topic.all  #you need the @ to be able to use variable in the view
-    @topics.sort_by! do |topic| # ! here means do it in place
-      topic.votes.count
-    end
-    @topics.reverse!
+    @topics = Topic.order("vote_count DESC")
+    #@topics = Topic.all  #you need the @ to be able to use variable in the view
+    #@topics.sort_by! do |topic| # ! here means do it in place
+    #  topic.votes.count
+    #end
+    #@topics.reverse!
+    
+
+
     respond_to do |format|
       format.html # index.html.erb
       format.json { render json: @topics }

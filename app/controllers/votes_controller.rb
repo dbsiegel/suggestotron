@@ -3,6 +3,7 @@ class VotesController < ApplicationController
     topic = Topic.find(params[:topic_id])
     vote = topic.votes.build  
     vote.save!
+    Topic.increment_counter(:vote_count,topic.id)
     redirect_to(topics_path)
   end
   def destroy
@@ -16,6 +17,7 @@ class VotesController < ApplicationController
    # end
    	unvote = topic.votes.last
    	unvote.destroy
+    Topic.decrement_counter(:vote_count,topic.id)
     redirect_to(topics_path)
   end
 end

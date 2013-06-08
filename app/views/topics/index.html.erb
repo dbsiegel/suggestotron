@@ -13,6 +13,8 @@
     <tr>
       <td><%= link_to topic.title, topic %></td>
       <td><%= pluralize(topic.votes.count, "vote") %></td>
+      <td><%= pluralize(topic.vote_count, "vote counter") %></td>
+      
       <td><%= button_to '+1', votes_path(topic_id: topic.id), method: :post %></td>
       <td><%= button_to '-1', votes_path(topic_id: topic.id), method: :delete %></td>
       <td><%= link_to 'Delete', topic, confirm: 'Are you sure?', method: :delete %></td>
