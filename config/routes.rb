@@ -1,7 +1,6 @@
-Suggestotron::Application.routes.draw do
-  resources :votes
-
-
+Suggestotron::Application.routes.draw do 
+  resources :votes 
+ delete "/votes" =>   "votes#destroy"#manually doing what resources is doing "controller name#action name"
   resources :topics
 root  :to => 'topics#index'
 
