@@ -3,6 +3,7 @@ Suggestotron::Application.routes.draw do
 
 
   resources :topics
+root  :to => 'topics#index'
 
 
   # The priority is based upon order of creation:
